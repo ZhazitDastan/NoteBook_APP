@@ -1,18 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- res/layout/activity_main.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:ignore="ExtraText">
 
-    <TextView
+    <!-- Верхние три кнопки располагаются горизонтально в верхнем углу -->
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Кнопка 1 -->
+        <ImageButton
+            android:id="@+id/btnNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notes"
+            android:background="?android:selectableItemBackground"
+            android:layout_marginLeft="110dp"
+            android:onClick="showNotes"/>
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="1dp" />
+
+        <!-- Кнопка 2 -->
+        <ImageButton
+            android:id="@+id/btnTasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tasks"
+            android:background="?android:selectableItemBackground"
+            android:onClick="showTasks"/>
+
+        <Space
+            android:layout_width="150dp"
+            android:layout_height="1dp" />
+
+        <!-- Кнопка 3 -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_settings"
+            android:background="?android:selectableItemBackground"
+            android:onClick="showSettings"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/searchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_below="@id/buttonsLayout"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="0dp"
+        android:clipToPadding="false">
+
+        <!-- Иконка поиска -->
+        <ImageView
+            android:id="@+id/icSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Поле ввода для поиска -->
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/icSearch"
+            android:background="@drawable/edit_text_background"
+        android:hint="Поиск заметок"
+        android:padding="8dp"
+        android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- Группа элементов управления для блоков настроек -->
+    <GridLayout
+        android:id="@+id/settingsGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchContainer"
+        android:columnCount="2"
+        android:rowCount="80"
+        android:layout_marginTop="16dp">
+
+        <!-- Используем блок настроек из settings_block.xml -->
+        <include layout="@layout/settings_block" />
+
+        <!-- Пример второго блока настроек -->
+        <!-- ... (используйте include для других блоков) -->
+    </GridLayout>
+
+    <!-- Кнопка добавления заметки -->
+    <ImageButton
+        android:id="@+id/btnAddNote"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@null"
+        android:onClick="addNote"
+        android:src="@drawable/ic_add" />
+</RelativeLayout>
