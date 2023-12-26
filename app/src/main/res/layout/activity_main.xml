@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:ignore="ExtraText">
 
-    <!-- Верхние три кнопки располагаются горизонтально в верхнем углу -->
     <LinearLayout
         android:id="@+id/buttonsLayout"
         android:layout_width="wrap_content"
@@ -85,12 +84,12 @@
             android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/icSearch"
             android:background="@drawable/edit_text_background"
-        android:hint="Поиск заметок"
+        android:hint="Search"
         android:padding="8dp"
         android:textSize="14sp" />
     </RelativeLayout>
 
-    <!-- Группа элементов управления для блоков настроек -->
+
     <GridLayout
         android:id="@+id/settingsGrid"
         android:layout_width="match_parent"
@@ -100,14 +99,12 @@
         android:rowCount="80"
         android:layout_marginTop="16dp">
 
-        <!-- Используем блок настроек из settings_block.xml -->
+
         <include layout="@layout/settings_block" />
 
-        <!-- Пример второго блока настроек -->
-        <!-- ... (используйте include для других блоков) -->
     </GridLayout>
 
-    <!-- Кнопка добавления заметки -->
+
     <ImageButton
         android:id="@+id/btnAddNote"
         android:layout_width="120dp"

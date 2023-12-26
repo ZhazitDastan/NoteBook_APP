@@ -92,11 +92,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         private fun openNotesTab() {
-                // Добавьте код для открытия вкладки с заметками
+
         }
 
         private fun openTasksTab() {
-                // Добавьте код для открытия вкладки с задачами
+
         }
 
         private fun openSettings() {

@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-// PermissionUtil.kt
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
